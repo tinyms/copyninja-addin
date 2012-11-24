@@ -1,0 +1,9 @@
+{	
+ "id":"${this.ID}",
+ "label":"${this.Label}",
+ "author":"${this.Author}",
+ "url":"${this.Url}",
+ "description":"${this.Description}",
+ "common_scripts":[],
+ "actions":[]
+}

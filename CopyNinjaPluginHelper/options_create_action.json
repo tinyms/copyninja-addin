@@ -1,0 +1,9 @@
+{
+	"ID":"Action1",
+	"Label":"action 1",
+	"Icon":"",
+	"CodeLanguage":["xml","javascript","java","javafx","csharp","php","python","ruby","vb","sql"],
+	"UseWebbrowser":false,
+	"UseDatabase":false,
+	"Option":""
+}

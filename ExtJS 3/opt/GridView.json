@@ -1,0 +1,18 @@
+{
+ "Title":"",
+ "RenderTo":"",
+ "Collapsible":true,
+ "Stateful":true,
+ "MultiSelect":false,
+ "ColumnLines":false,
+ "GenerateActionColumn":false,
+ "Plugin":{
+  "RowExpander":false,
+  "WithCheckbox":false,
+  "WithNumbered":false
+ },
+ "Pager":{
+  "Enable":false,
+  "Style":["Normal","Sliding","ProgressBar"]
+ }
+}

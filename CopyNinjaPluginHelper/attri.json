@@ -1,0 +1,6 @@
+{
+ "Sortable":false,
+ "Render":false,
+ "Editor":["input","select","checkbox","textarea"],
+ "Width":300
+}

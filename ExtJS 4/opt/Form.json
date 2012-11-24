@@ -1,0 +1,7 @@
+{
+ "Width":450,
+ "LabelWidth":120,
+ "LabelAlign":["left","top","right","bottom"],
+ "Layout":["Form","HBox"],
+ "Columns":2
+}

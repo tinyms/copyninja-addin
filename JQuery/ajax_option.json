@@ -1,0 +1,17 @@
+{
+ "Url":"",
+ "FormID":"",
+ "Type":["GET","POST"],
+ "DataType":["json","xml","script","html"],
+ "StatusCode":"404,500",
+ "Setting":{
+	"Async":true,
+	"Cache":true,
+	"CrossDomain":false
+ },
+ "Event":{
+	"OnSuccess":"",
+	"OnError":"",
+	"OnComplete":""
+ }
+}

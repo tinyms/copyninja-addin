@@ -1,0 +1,8 @@
+{
+ "Url":"",
+ "FormID":"",
+ "DataType":["json","xml","script","html"],
+ "Event":{
+	"OnSuccess":""
+ }
+}

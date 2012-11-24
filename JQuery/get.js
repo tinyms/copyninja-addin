@@ -1,0 +1,1 @@
+cn.result = cn.render(cn.home+"get.tpl",cn.options);

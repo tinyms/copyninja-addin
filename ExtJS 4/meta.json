@@ -1,0 +1,63 @@
+{	
+ "id":"com.tinyms.extjs4",
+ "label":"ExtJS 4",
+ "author":"tinyms",
+ "url":"http://www.tinyms.com",
+ "description":"ExtJS 4 Helper",
+ "common_scripts":[],
+ "actions":[
+	 {
+	 "id":"PropertyGrid",
+	 "label":"Property Grid",
+	 "icon":"extjs.ico",
+	 "code_language":"javascript",
+	 "use_webbrowser":true,
+	 "use_database":true,
+	 "option":"opt/PropertyGrid.json",
+	 "scripts":["PropertyGrid_Create.js"]
+	},
+	{
+	 "id":"GridView",
+	 "label":"Grid View",
+	 "icon":"extjs.ico",
+	 "code_language":"javascript",
+	 "use_webbrowser":true,
+	 "use_database":true,
+	 "option":"opt/GridView.json",
+	 "column_extended_attributes":"opt/GridViewExtendColumnAttr.json",
+	 "scripts":["GridView_Create.js"]
+	},
+	{
+	 "id":"EditableGrid",
+	 "label":"Editable Grid",
+	 "icon":"extjs.ico",
+	 "code_language":"javascript",
+	 "use_webbrowser":true,
+	 "use_database":true,
+	 "option":"opt/EditableGrid.json",
+	 "column_extended_attributes":"opt/EditableGridExtendColumnAttr.json",
+	 "scripts":["EditableGrid_Create.js"]
+	},
+	{
+	 "id":"ComboBox",
+	 "label":"ComboBox",
+	 "icon":"extjs.ico",
+	 "code_language":"javascript",
+	 "use_webbrowser":true,
+	 "use_database":true,
+	 "column_extended_attributes":"opt/ComboBoxExtendColumnAttr.json",
+	 "option":"opt/ComboBox.json",
+	 "scripts":["ComboBox_Create.js"]
+	},
+	{
+	 "id":"Form",
+	 "label":"Form",
+	 "icon":"extjs.ico",
+	 "code_language":"javascript",
+	 "use_webbrowser":true,
+	 "use_database":true,
+	 "option":"opt/Form.json",
+	 "scripts":["Form_Create.js"]
+	}
+ ]
+}

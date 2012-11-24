@@ -1,0 +1,37 @@
+{	
+	"id":"JQueryAjaxHelper",
+	"label":"JQuery AJAX",
+	"author":"tinyms",
+	"url":"http://www.tinyms.com",
+	"description":"JQuery AJAX Helper",
+	"common_scripts":[],
+	"actions":[{
+		"id":"ajax_get",
+		"label":"$.GET",
+		"icon":"jquery.ico",
+		"code_language":"javascript",
+		"use_webbrowser":false,
+		"use_database":false,
+		"option":"shorthand_option.json",
+		"scripts":["get.js"]
+	},{
+		"id":"ajax_post",
+		"label":"$.POST",
+		"icon":"jquery.ico",
+		"code_language":"javascript",
+		"use_webbrowser":false,
+		"use_database":false,
+		"option":"shorthand_option.json",
+		"scripts":["post.js"]
+	},{
+		"id":"ajax_low_api",
+		"label":"$.AJAX",
+		"icon":"jquery.ico",
+		"code_language":"javascript",
+		"use_webbrowser":false,
+		"use_database":false,
+		"option":"ajax_option.json",
+		"scripts":["ajax.js"]
+	}
+	]
+}

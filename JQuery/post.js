@@ -1,0 +1,1 @@
+cn.result = cn.render(cn.home+"post.tpl",cn.options);

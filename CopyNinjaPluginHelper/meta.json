@@ -1,0 +1,27 @@
+{	
+	"id":"CopyNinjaPluginHelper",
+	"label":"Create Plugin Helper",
+	"author":"tinyms",
+	"url":"http://www.tinyms.com",
+	"description":"Create Plugin Helper",
+	"common_scripts":[],
+	"actions":[{
+		"id":"create_plugin_meta",
+		"label":"Create Meta",
+		"icon":"",
+		"code_language":"javascript",
+		"use_webbrowser":false,
+		"use_database":false,
+		"option":"options_create_meta.json",
+		"scripts":["create_meta.js"]
+	},{
+		"id":"create_plugin_action",
+		"label":"Create Action",
+		"icon":"",
+		"code_language":"javascript",
+		"use_webbrowser":false,
+		"use_database":false,
+		"option":"options_create_action.json",
+		"scripts":["create_action.js"]
+	}]
+}

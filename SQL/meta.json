@@ -1,0 +1,46 @@
+{	
+	"id":"SQL",
+	"label":"SQL",
+	"author":"tinyms",
+	"url":"http://www.tinyms.com",
+	"description":"SQL Helper",
+	"common_scripts":[],
+	"actions":[
+	{
+		"id":"SelectWithParams",
+		"label":"Select with params",
+		"icon":"sql.png",
+		"code_language":"sql",
+		"use_webbrowser":false,
+		"use_database":true,
+		"option":"sql_with_params.json",
+		"scripts":["select_with_params.js"]
+	},{
+		"id":"InsertWithParams",
+		"label":"Insert with params",
+		"icon":"sql.png",
+		"code_language":"sql",
+		"use_webbrowser":false,
+		"use_database":true,
+		"option":"sql_with_params.json",
+		"scripts":["insert_with_params.js"]
+	},{
+		"id":"UpdateWithParams",
+		"label":"Update with params",
+		"icon":"sql.png",
+		"code_language":"sql",
+		"use_webbrowser":false,
+		"use_database":true,
+		"option":"sql_with_params.json",
+		"scripts":["update_with_params.js"]
+	},{
+		"id":"DeleteWithParams",
+		"label":"Delete with params",
+		"icon":"sql.png",
+		"code_language":"sql",
+		"use_webbrowser":false,
+		"use_database":true,
+		"option":"sql_with_params.json",
+		"scripts":["delete_with_params.js"]
+	}]
+}

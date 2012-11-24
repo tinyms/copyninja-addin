@@ -1,0 +1,19 @@
+{
+ "Title":"",
+ "RenderTo":"",
+ "UseMask":false,
+ "Collapsible":true,
+ "Stateful":true,
+ "MultiSelect":false,
+ "ColumnLines":false,
+ "GenerateActionColumn":false,
+ "EditMode":["Cell","Row"],
+ "Plugin":{
+  "WithCheckbox":false,
+  "WithNumbered":false
+ },
+ "Pager":{
+  "Enable":false,
+  "Style":["Normal","Sliding","ProgressBar"]
+ }
+}
