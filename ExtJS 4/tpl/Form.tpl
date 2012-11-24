@@ -3,6 +3,7 @@ Ext.require([
 ]);
 Ext.onReady(function() {
     Ext.QuickTips.init();
+	/*Copy*/
 	var required = '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>';
 	
 	 var panel = Ext.widget({
@@ -143,4 +144,5 @@ Ext.onReady(function() {
     });
 
     panel.render(document.body);
+	/*End Copy*/
 });	

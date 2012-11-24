@@ -1,7 +1,7 @@
 Ext.onReady(function() {
     Ext.QuickTips.init();
     Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
-	/*Begin Copy*/
+	/*Copy*/
 	<?list this.table.Columns as col?>
 	<?if(col.IsExclude){continue;}?>
 	<?if col.Render?>

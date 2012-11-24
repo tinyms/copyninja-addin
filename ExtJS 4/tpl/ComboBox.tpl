@@ -5,8 +5,10 @@ Ext.require([
     'Ext.data.*'
 ]);
 
-// Define the model for a State
-Ext.define('${this.table.Name}', {
+Ext.onReady(function() {
+    Ext.tip.QuickTipManager.init();
+	/*Copy*/
+	Ext.define('${this.table.Name}', {
     extend: 'Ext.data.Model',
     fields: [
 	<?
@@ -26,19 +28,13 @@ Ext.define('${this.table.Name}', {
 	<?count++;?>
 	<?endlist?>
     ]
-});
+	});
 
-function createStore() {
-    return Ext.create('Ext.data.JsonStore', {
-        autoDestroy: true,
-        model: '${this.table.Name}',
-        data: test_data
-    });
-}
-
-Ext.onReady(function() {
-    Ext.tip.QuickTipManager.init();
-	
+	var store = Ext.create('Ext.data.JsonStore', {
+			autoDestroy: true,
+			model: '${this.table.Name}',
+			data: test_data
+		});
     var combobox = Ext.create('Ext.form.field.ComboBox', {
         fieldLabel: "${this.opts.FieldLabel}",
         renderTo: '${this.renderTo}',
@@ -46,7 +42,7 @@ Ext.onReady(function() {
 		valueField:'${valueField}',
         width: 320,
         labelWidth: 130,
-        store: createStore(),
+        store: store,
         queryMode: 'local',
 		
 		<?if this.opts.UseTemplate?>
@@ -63,5 +59,5 @@ Ext.onReady(function() {
 		
 		typeAhead: true
     });
-
+	/*End Copy*/
 });

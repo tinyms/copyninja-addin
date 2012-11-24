@@ -1,5 +1,6 @@
 Ext.onReady(function() {
     Ext.QuickTips.init();
+	/*Copy*/
 	Ext.form.Field.prototype.msgTarget = 'side';
 	var col_width_scale = 1/${this.opts.Columns}
 	 var panel = new Ext.FormPanel({ 
@@ -115,4 +116,5 @@ Ext.onReady(function() {
     });
 
     panel.render(document.body);
+	/*End Copy*/
 });	

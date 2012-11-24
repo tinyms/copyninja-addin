@@ -11,8 +11,11 @@ Ext.require([
 	'Ext.ux.RowExpander',
     'Ext.selection.CheckboxModel'
 ]);
-/*Copy*/
-Ext.define('${this.table.Name}', {
+Ext.onReady(function() {
+    Ext.QuickTips.init();
+    Ext.state.Manager.setProvider(Ext.create('Ext.state.CookieProvider'));
+	/*Copy*/
+	Ext.define('${this.table.Name}', {
     extend: 'Ext.data.Model',
     fields: [
 	<?var count = 0;?>
@@ -28,11 +31,6 @@ Ext.define('${this.table.Name}', {
     ],
     idProperty: 'company'
 });
-/*End Copy*/
-Ext.onReady(function() {
-    Ext.QuickTips.init();
-    Ext.state.Manager.setProvider(Ext.create('Ext.state.CookieProvider'));
-	/*Copy*/
 	<?list this.table.Columns as col?>
 	<?if(col.IsExclude){continue;}?>
 	<?if col.Render?>

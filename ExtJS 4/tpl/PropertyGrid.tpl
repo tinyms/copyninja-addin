@@ -6,6 +6,7 @@ Ext.require([
  'Ext.grid.property.Grid'
 ]);
 Ext.onReady(function(){
+/*Copy*/
 var propsGrid = Ext.create('Ext.grid.property.Grid', {
    width: 300,
    renderTo: '${id}',
@@ -52,4 +53,5 @@ var propsGrid = Ext.create('Ext.grid.property.Grid', {
 <?endlist?>
    }
 });
+/*End Copy*/
 });

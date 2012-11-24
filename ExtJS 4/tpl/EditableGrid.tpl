@@ -12,8 +12,12 @@ Ext.require([
 	'Ext.form.*',
     'Ext.ux.CheckColumn'
 ]);
-/*Copy*/
-Ext.define('${this.table.Name}', {
+
+Ext.onReady(function() {
+    Ext.QuickTips.init();
+    Ext.state.Manager.setProvider(Ext.create('Ext.state.CookieProvider'));
+	/*Copy*/
+	Ext.define('${this.table.Name}', {
     extend: 'Ext.data.Model',
     fields: [
 	<?var count = 0;?>
@@ -38,12 +42,7 @@ var editMode = Ext.create('Ext.grid.plugin.RowEditing', {
 var editMode = Ext.create('Ext.grid.plugin.CellEditing', {
         clicksToEdit: 1
     });
-<?endif?>	
-/*End Copy*/
-Ext.onReady(function() {
-    Ext.QuickTips.init();
-    Ext.state.Manager.setProvider(Ext.create('Ext.state.CookieProvider'));
-	/*Copy*/
+<?endif?>
 	<?list this.table.Columns as col?>
 	<?if(col.IsExclude){continue;}?>
 	<?if col.Render?>

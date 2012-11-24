@@ -3,7 +3,7 @@ var cols = this.table.Columns;
 var id = this.options.RenderTo==""?"grid":this.options.RenderTo;
 ?>
 Ext.onReady(function(){
-/*Begin Copy*/
+/*Copy*/
 var propsGrid = new Ext.grid.PropertyGrid({
    width: 300,
    autoHeight: true,

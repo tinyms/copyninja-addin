@@ -1,4 +1,8 @@
-var store = new Ext.data.JsonStore({
+
+Ext.onReady(function() {
+    Ext.QuickTips.init();
+	/*Copy*/
+	var store = new Ext.data.JsonStore({
 		autoDestroy: true,
 		autoLoad: true,
 		storeId:'${this.table.Name}',
@@ -23,9 +27,6 @@ var store = new Ext.data.JsonStore({
 		<?endlist?>
 		]
 	});
-Ext.onReady(function() {
-    Ext.QuickTips.init();
-	
     var combobox = new Ext.form.ComboBox({
         fieldLabel: "${this.opts.FieldLabel}",
         renderTo: '${this.renderTo}',
@@ -50,5 +51,5 @@ Ext.onReady(function() {
 		<?endif?>
 		typeAhead: true
     });
-
+	/*End Copy*/
 });
