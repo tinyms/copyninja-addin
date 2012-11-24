@@ -1,0 +1,2 @@
+copyninja-addin
+===============
