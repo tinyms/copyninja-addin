@@ -91,7 +91,7 @@ var editMode = Ext.create('Ext.grid.plugin.CellEditing', {
         dataIndex: '${col.Name}',
 		<?if col.DataType=="string"?>
 		editor:{allowBlank:${col.AllowBlank}}
-		<?elseif col.DataType=="double"?>
+		<?elseif col.DataType=="double"||col.DataType=="int"?>
 		editor: {
                 xtype: 'numberfield',
                 allowBlank: ${col.AllowBlank}
@@ -119,7 +119,7 @@ var editMode = Ext.create('Ext.grid.plugin.CellEditing', {
         dataIndex: '${col.Name}',
 		<?if col.DataType=="string"?>
 		editor:{allowBlank:${col.AllowBlank}}
-		<?elseif col.DataType=="double"?>
+		<?elseif col.DataType=="double"||col.DataType=="int"?>
 		editor: {
                 xtype: 'numberfield',
                 allowBlank: ${col.AllowBlank}

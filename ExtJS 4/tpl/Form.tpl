@@ -81,6 +81,9 @@ Ext.onReady(function() {
 				col_count = 0;
 				row_count++;
 			}
+			if(this.table.Columns[k].IsExclude){
+				continue;
+			}
 			fields[row_count][col_count] = this.table.Columns[k];
 			col_count++;
 		}
