@@ -20,4 +20,4 @@ var where_str = [];
 for(var k=0;k<pks.length;k++){
 	where_str[k] = pks[k]+"="+pk_params_[k];
 }
-cn.result = "DELETE "+cn.table.Name+" WHERE "+where_str.join(" AND ");
+cn.result = "DELETE FROM "+cn.table.Name+" WHERE "+where_str.join(" AND ");
