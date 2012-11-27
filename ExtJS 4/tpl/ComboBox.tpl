@@ -60,5 +60,8 @@ Ext.onReady(function() {
 		
 		typeAhead: true
     });
+	<?if this.opts.Event.Select?>
+		combobox.on('select',function(combo,records,eopts){});
+	<?endif?>
 	/*End Copy*/
 });

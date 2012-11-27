@@ -68,6 +68,7 @@ Ext.onReady(function() {
 		<?if count!=0?>
 		,{
         text: '${col.Name}',
+		menuDisabled:${col.MenuDisabled},
         flex: 1,
         sortable : ${col.Sortable},
 		<?if col.Render?>
@@ -81,6 +82,7 @@ Ext.onReady(function() {
 		<?else?>
 		{
         text     : '${col.Name}',
+		menuDisabled:${col.MenuDisabled},
         flex     : 1,
         sortable : ${col.Sortable},
 		<?if col.Render?>

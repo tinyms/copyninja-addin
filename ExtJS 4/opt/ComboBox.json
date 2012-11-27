@@ -3,5 +3,8 @@
  "MultiSelect":false,
  "FieldLabel":"",
  "RenderTo":"",
- "Editable":true
+ "Editable":true,
+ "Event":{
+	"Select":false
+ }
 }

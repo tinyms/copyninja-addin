@@ -80,6 +80,7 @@ var editMode = Ext.create('Ext.grid.plugin.CellEditing', {
 		<?if count!=0?>
 		,{
         header: '${col.Name}',
+		menuDisabled:${col.MenuDisabled},
         flex: 1,
         sortable : ${col.Sortable},
 		<?if col.Render?>
@@ -108,6 +109,7 @@ var editMode = Ext.create('Ext.grid.plugin.CellEditing', {
 		<?else?>
 		{
         header     : '${col.Name}',
+		menuDisabled:${col.MenuDisabled},
         flex     : 1,
         sortable : ${col.Sortable},
 		<?if col.Render?>
