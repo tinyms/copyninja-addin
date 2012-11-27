@@ -12,11 +12,12 @@ var propsGrid = new Ext.grid.PropertyGrid({
 <?var it = 0;?>
 <?list cols as index col?>
 <?if(col.IsExclude){continue;}?>
+
 <?if it!=0?>
-,"${col.Name}":"${col.Name}"
-<?else?>
-"${col.Name}":"${col.Name}"
+,
 <?endif?>
+"${col.Name}":"${col.Name}"
+
 <?it++;?>
 <?endlist?>
    },
@@ -25,18 +26,8 @@ var propsGrid = new Ext.grid.PropertyGrid({
 <? list cols as index col?>
 <?if(col.IsExclude){continue;}?>
 <?if it!=0?>
-
-<?if col.DataType=="string"?>
-,"${col.Name}":""
-<?elseif col.DataType=="bool"?>
-,"${col.Name}":false
-<?elseif col.DataType=="date"?>
-,"${col.Name}":new Date()
-<?elseif col.DataType=="long"||col.DataType=="double"||col.DataType=="int"?>
-,"${col.Name}":0
+,
 <?endif?>
-
-<?else?>
 <?if col.DataType=="string"?>
 "${col.Name}":""
 <?elseif col.DataType=="bool"?>
@@ -46,7 +37,7 @@ var propsGrid = new Ext.grid.PropertyGrid({
 <?elseif col.DataType=="long"||col.DataType=="double"||col.DataType=="int"?>
 "${col.Name}":0
 <?endif?>
-<?endif?>
+
 <?it++;?>
 <?endlist?>
    },

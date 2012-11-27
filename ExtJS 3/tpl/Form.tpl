@@ -28,10 +28,10 @@ Ext.onReady(function() {
 		}
 		?>
 		<?if count!=0?>
-	,{name:"${col.Name}",fieldLabel:"${col.Name}",allowBlank: ${col.AllowBlank}${xtype}}
-		<?else?>
-	{name:"${col.Name}",fieldLabel:"${col.Name}",allowBlank: ${col.AllowBlank}${xtype}}
+		,
 		<?endif?>
+		{name:"${col.Name}",fieldLabel:"${col.Name}",allowBlank: ${col.AllowBlank}${xtype}}
+
 		<?count++;?>
 		<?endlist?>
 		],

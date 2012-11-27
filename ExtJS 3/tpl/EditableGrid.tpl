@@ -2,6 +2,7 @@ Ext.onReady(function() {
     Ext.QuickTips.init();
     Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
 	/*Copy*/
+	
 	<?list this.table.Columns as col?>
 	<?if(col.IsExclude){continue;}?>
 	<?if col.Render?>
@@ -10,48 +11,58 @@ Ext.onReady(function() {
     }
 	<?endif?>
 	<?endlist?>
+	
 	var store = new Ext.data.JsonStore({
-autoDestroy: true,
-storeId: '${this.table.Name}',
+		autoDestroy: true,
+		storeId: '${this.table.Name}',
         fields: [
         <?var count = 0;?>
 		<?list this.table.Columns as col?>
 		<?if(col.IsExclude){continue;}?>
 		<?if count!=0?>
-		,{name:"${col.Name}",type:"${(col.DataType=='double'?'float':col.DataType)}"}
-		<?else?>
-		{name:"${col.Name}",type:"${(col.DataType=='double'?'float':col.DataType)}"}
+		,
 		<?endif?>
+		{name:"${col.Name}",type:"${(col.DataType=='double'?'float':col.DataType)}"}
 		<?count++;?>
 		<?endlist?>
         ]
     });
-store.loadData(test_data);
-<?if this.options.EditMode=="Row"?>
-var editor = new Ext.ux.grid.RowEditor({
-    saveText: 'Update'
-});
-<?endif?>
-<?if this.options.Plugin.WithCheckbox?>
-var sm = new Ext.grid.CheckboxSelectionModel();
-<?endif?>
+	
+	store.loadData(test_data);
+	
+	<?if this.options.EditMode=="Row"?>
+	var editor = new Ext.ux.grid.RowEditor({
+		saveText: 'Update'
+	});
+	<?endif?>
+	
+	<?if this.options.Plugin.WithCheckbox?>
+	var sm = new Ext.grid.CheckboxSelectionModel();
+	<?endif?>
+	
     var grid = new Ext.grid.EditorGridPanel({
         store: store,
+		title: '${this.options.Title}',
 		autoHeight: true,
 		loadMask:true,
+		stateful: ${this.options.Stateful},
+        collapsible: ${this.options.Collapsible},
+        multiSelect: ${this.options.MultiSelect},
+		
 		<?if this.options.EditMode=="Row"?>
 		plugins: [editor],
 		<?endif?>
+		
 		<?if this.options.Plugin.WithCheckbox?>
 		sm:sm,
 		<?endif?>
-        stateful: ${this.options.Stateful},
-        collapsible: ${this.options.Collapsible},
-        multiSelect: ${this.options.MultiSelect},
+        
         <?if this.options.ColumnLines?>
 		columnLines: true,
 		<?endif?>
+		
         columns: [
+		
 		<?if this.options.Plugin.WithNumbered?>
 			<?if this.table.Columns.length>0?>
 			new Ext.grid.RowNumberer(),
@@ -59,6 +70,7 @@ var sm = new Ext.grid.CheckboxSelectionModel();
 			new Ext.grid.RowNumberer()
 			<?endif?>
 		<?endif?>
+		
 		<?if this.options.Plugin.WithCheckbox?>
 			<?if this.table.Columns.length>0?>
 			sm,
@@ -66,14 +78,19 @@ var sm = new Ext.grid.CheckboxSelectionModel();
 			sm
 			<?endif?>
 		<?endif?>
+		
 		<?var count = 0;?>
 		<?list this.table.Columns as col?>
 		<?if(col.IsExclude){continue;}?>
+		
 		<?if count!=0?>
-		,{
+		,
+		<?endif?>
+		{
         header: '${col.Name}',
         flex: 1,
         sortable : ${col.Sortable},
+		menuDisabled: ${!col.HasMenu},
 		<?if col.DataType=="date"?>
 		editor: new Ext.form.DateField(),
 		<?elseif col.DataType=="long"||col.DataType=="double"?>
@@ -83,31 +100,13 @@ var sm = new Ext.grid.CheckboxSelectionModel();
 		<?else?>
 		editor: new Ext.form.TextField({allowBlank: ${col.AllowBlank}}),
 		<?endif?>
+		
 		<?if col.Locked?>
 		locked: true,
 		<?endif?>
+		
         dataIndex: '${col.Name}'
         }
-		<?else?>
-		{
-        header     : '${col.Name}',
-        flex     : 1,
-        sortable : ${col.Sortable},
-		<?if col.DataType=="date"?>
-		editor: new Ext.form.DateField(),
-		<?elseif col.DataType=="long"||col.DataType=="double"?>
-		editor: new Ext.form.NumberField({allowBlank:${col.AllowBlank}}),
-		<?elseif col.DataType=="bool"?>
-		xtype: 'checkcolumn',
-		<?else?>
-		editor: new Ext.form.TextField({allowBlank: ${col.AllowBlank}}),
-		<?endif?>
-		<?if col.Locked?>
-		locked: true,
-		<?endif?>
-        dataIndex: '${col.Name}'
-        }
-		<?endif?>
 		<?count++;?>
 		<?endlist?>
 		<?if this.options.GenerateActionColumn?>
@@ -134,7 +133,7 @@ var sm = new Ext.grid.CheckboxSelectionModel();
 			pageSize: 25
 		}),
 		<?endif?>
-        title: '${this.options.Title}',
+        
         renderTo: '${this.renderTo}'
     });
 	/*End Copy*/

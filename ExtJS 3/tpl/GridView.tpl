@@ -2,6 +2,7 @@ Ext.onReady(function() {
     Ext.QuickTips.init();
     Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
 	/*Copy*/
+	
 	<?list this.table.Columns as col?>
 	<?if(col.IsExclude){continue;}?>
 	<?if col.Render?>
@@ -10,55 +11,64 @@ Ext.onReady(function() {
     }
 	<?endif?>
 	<?endlist?>
+	
 	var store = new Ext.data.JsonStore({
-autoDestroy: true,
-storeId: '${this.table.Name}',
+		autoDestroy: true,
+		storeId: '${this.table.Name}',
         fields: [
         <?var count = 0;?>
 		<?list this.table.Columns as col?>
 		<?if(col.IsExclude){continue;}?>
 		<?if count!=0?>
-		,{name:"${col.Name}",type:"${(col.DataType=='double'?'float':col.DataType)}"}
-		<?else?>
-		{name:"${col.Name}",type:"${(col.DataType=='double'?'float':col.DataType)}"}
+		,
 		<?endif?>
+		{name:"${col.Name}",type:"${(col.DataType=='double'?'float':col.DataType)}"}
 		<?count++;?>
 		<?endlist?>
         ]
     });
-store.loadData(test_data);
-<?if this.options.Plugin.RowExpander?>
-var expander = new Ext.ux.grid.RowExpander({
-    tpl : new Ext.Template(
-	<?list this.table.Columns as index col?>
-	<?if index!=0?>
-	,'<p><b>${col.Name}:</b> {${col.Name}}</p>'
-	<?else?>
-	'<p><b>${col.Name}:</b> {${col.Name}}</p>'
+	store.loadData(test_data);
+	
+	<?if this.options.Plugin.RowExpander?>
+		var expander = new Ext.ux.grid.RowExpander({
+		tpl : new Ext.Template(
+		<?list this.table.Columns as index col?>
+		<?if index!=0?>
+		,
+		<?endif?>
+		'<p><b>${col.Name}:</b> {${col.Name}}</p>'
+		<?endlist?>
+		)
+		});
 	<?endif?>
-	<?endlist?>
-    )
-});
-<?endif?>
-<?if this.options.Plugin.WithCheckbox?>
-var sm = new Ext.grid.CheckboxSelectionModel();
-<?endif?>
+	
+	<?if this.options.Plugin.WithCheckbox?>
+	var sm = new Ext.grid.CheckboxSelectionModel();
+	<?endif?>
+	
     var grid = new Ext.grid.GridPanel({
         store: store,
 		autoHeight: true,
 		loadMask:true,
+		stateful: ${this.options.Stateful},
+        collapsible: ${this.options.Collapsible},
+        multiSelect: ${this.options.MultiSelect},
+		title: '${this.options.Title}',
+        renderTo: '${this.renderTo}',
+		stripeRows: true,
+		
 		<?if this.options.Plugin.WithCheckbox?>
 		sm:sm,
 		<?endif?>
+		
 		<?if this.options.Plugin.RowExpander?>
 		plugins: expander,
 		<?endif?>
-        stateful: ${this.options.Stateful},
-        collapsible: ${this.options.Collapsible},
-        multiSelect: ${this.options.MultiSelect},
+		 
         <?if this.options.ColumnLines?>
 		columnLines: true,
 		<?endif?>
+		
         columns: [
 		<?if this.options.Plugin.RowExpander?>
 			<?if this.table.Columns.length>0?>
@@ -67,6 +77,7 @@ var sm = new Ext.grid.CheckboxSelectionModel();
 			expander
 			<?endif?>
 		<?endif?>
+		
 		<?if this.options.Plugin.WithNumbered?>
 			<?if this.table.Columns.length>0?>
 			new Ext.grid.RowNumberer(),
@@ -74,6 +85,7 @@ var sm = new Ext.grid.CheckboxSelectionModel();
 			new Ext.grid.RowNumberer()
 			<?endif?>
 		<?endif?>
+		
 		<?if this.options.Plugin.WithCheckbox?>
 			<?if this.table.Columns.length>0?>
 			sm,
@@ -81,40 +93,30 @@ var sm = new Ext.grid.CheckboxSelectionModel();
 			sm
 			<?endif?>
 		<?endif?>
+		
 		<?var count = 0;?>
 		<?list this.table.Columns as col?>
 		<?if(col.IsExclude){continue;}?>
 		<?if count!=0?>
-		,{
+		,
+		<?endif?>
+		{
         header: '${col.Name}',
         flex: 1,
         sortable : ${col.Sortable},
+		menuDisabled: ${!col.HasMenu},
 		<?if col.DataType=="date"?>
 		renderer : Ext.util.Format.dateRenderer('m/d/Y'),
 		<?elseif col.Render?>
 		renderer: ${col.Name}_render,
 		<?endif?>
+		
 		<?if col.Locked?>
 		locked: true,
 		<?endif?>
+		
         dataIndex: '${col.Name}'
         }
-		<?else?>
-		{
-        header     : '${col.Name}',
-        flex     : 1,
-        sortable : ${col.Sortable},
-		<?if col.DataType=="date"?>
-		renderer : Ext.util.Format.dateRenderer('m/d/Y'),
-		<?elseif col.Render?>
-		renderer: ${col.Name}_render,
-		<?endif?>
-		<?if col.Locked?>
-		locked: true,
-		<?endif?>
-        dataIndex: '${col.Name}'
-        }
-		<?endif?>
 		<?count++;?>
 		<?endlist?>
 		<?if this.options.GenerateActionColumn?>
@@ -141,9 +143,7 @@ var sm = new Ext.grid.CheckboxSelectionModel();
 			pageSize: 25
 		}),
 		<?endif?>
-        title: '${this.options.Title}',
-        renderTo: '${this.renderTo}',
-		stripeRows: true,
+        
 		enableTextSelection: true
     });
 	/*End Copy*/

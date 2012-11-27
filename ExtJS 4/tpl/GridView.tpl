@@ -97,7 +97,7 @@ Ext.onReady(function() {
         xtype: 'actioncolumn',
         width: 50,
         items: [{
-            icon:'',  // Use a URL in the icon config
+            icon:'',
             tooltip:'',
             handler: function(grid, rowIndex, colIndex) {       
             }

@@ -1,4 +1,3 @@
-
 Ext.onReady(function() {
     Ext.QuickTips.init();
 	/*Copy*/
@@ -6,7 +5,6 @@ Ext.onReady(function() {
 		autoDestroy: true,
 		autoLoad: true,
 		storeId:'${this.table.Name}',
-		method:'GET',
 		url:'demo_data.json',
 		fields: [
 		<?
@@ -19,10 +17,9 @@ Ext.onReady(function() {
 		<?if(col.DisplayField){displayField=col.Name;}?>
 		<?if(col.ValueField){valueField=col.Name;}?>
 		<?if count!=0?>
-		,'${col.Name}'
-		<?else?>
-		'${col.Name}'
+		,
 		<?endif?>
+		'${col.Name}'
 		<?count++;?>
 		<?endlist?>
 		]
