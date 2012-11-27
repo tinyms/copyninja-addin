@@ -9,14 +9,14 @@ Ext.onReady(function() {
 	 var panel = Ext.widget({
         xtype: 'form',
 		<?if this.opts.Layout!="HBox"?>
-        layout: {
-		<?if this.opts.Layout=="Form"?>
-		type:'form'
-		<?elseif this.opts.Layout=="Table"?>
-		type:'table',
-		columns:${this.opts.Columns}
-		<?endif?>
-		},
+			layout: {
+			<?if this.opts.Layout=="Form"?>
+			type:'form'
+			<?elseif this.opts.Layout=="Table"?>
+			type:'table',
+			columns:${this.opts.Columns}
+			<?endif?>
+			},
 		<?endif?>
         collapsible: true,
         id: 'form',
@@ -49,10 +49,9 @@ Ext.onReady(function() {
 		}
 		?>
 		<?if count!=0?>
-	,{name:"${col.Name}",fieldLabel:"${col.Name}",allowBlank: ${col.AllowBlank}${xtype}${afterLabelTextTpl}}
-		<?else?>
-	{name:"${col.Name}",fieldLabel:"${col.Name}",allowBlank: ${col.AllowBlank}${xtype}${afterLabelTextTpl}}
+		,
 		<?endif?>
+	{name:"${col.Name}",fieldLabel:"${col.Name}",allowBlank: ${col.AllowBlank}${xtype}${afterLabelTextTpl}}
 		<?count++;?>
 		<?endlist?>
 		],

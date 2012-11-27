@@ -21,10 +21,10 @@ Ext.onReady(function() {
 	<?if(col.DisplayField){displayField=col.Name;}?>
 	<?if(col.ValueField){valueField=col.Name;}?>
 	<?if count!=0?>
-	,{name:"${col.Name}",type:"${(col.DataType=='double'?'float':col.DataType)}"}
-	<?else?>
-	{name:"${col.Name}",type:"${(col.DataType=='double'?'float':col.DataType)}"}
+	,
 	<?endif?>
+	{name:"${col.Name}",type:"${(col.DataType=='double'?'float':col.DataType)}"}
+
 	<?count++;?>
 	<?endlist?>
     ]
@@ -60,6 +60,7 @@ Ext.onReady(function() {
 		
 		typeAhead: true
     });
+	
 	<?if this.opts.Event.Select?>
 		combobox.on('select',function(combo,records,eopts){});
 	<?endif?>

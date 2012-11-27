@@ -29,7 +29,7 @@ Ext.onReady(function() {
 	<?count++;?>
 	<?endlist?>
     ],
-    idProperty: 'company'
+    idProperty: ''
 });
 	<?list this.table.Columns as col?>
 	<?if(col.IsExclude){continue;}?>
@@ -45,55 +45,49 @@ Ext.onReady(function() {
     });
     var grid = Ext.create('Ext.grid.Panel', {
         store: store,
+		stateful: ${this.options.Stateful},
+        collapsible: ${this.options.Collapsible},
+        multiSelect: ${this.options.MultiSelect},
+		
 		<?if this.options.Plugin.WithCheckbox?>
 		selModel:Ext.create('Ext.selection.CheckboxModel'),
 		<?endif?>
-        stateful: ${this.options.Stateful},
-        collapsible: ${this.options.Collapsible},
-        multiSelect: ${this.options.MultiSelect},
+		
         <?if this.options.ColumnLines?>
 		columnLines: true,
 		<?endif?>
+		
         columns: [
 		<?if this.options.Plugin.WithNumbered?>
 		<?if this.table.Columns.length>0?>
-		Ext.create('Ext.grid.RowNumberer'),
+			Ext.create('Ext.grid.RowNumberer'),
 		<?else?>
-		Ext.create('Ext.grid.RowNumberer')
+			Ext.create('Ext.grid.RowNumberer')
 		<?endif?>
 		<?endif?>
 		<?var count = 0;?>
 		<?list this.table.Columns as col?>
 		<?if(col.IsExclude){continue;}?>
+		
 		<?if count!=0?>
-		,{
-        text: '${col.Name}',
-		menuDisabled:${col.MenuDisabled},
-        flex: 1,
-        sortable : ${col.Sortable},
-		<?if col.Render?>
-		renderer: ${col.Name}_render,
+		,
 		<?endif?>
-		<?if col.Locked?>
-		locked: true,
-		<?endif?>
-        dataIndex: '${col.Name}'
-        }
-		<?else?>
 		{
-        text     : '${col.Name}',
-		menuDisabled:${col.MenuDisabled},
-        flex     : 1,
+        text: '${col.Name}',
+		dataIndex: '${col.Name}',
+		menuDisabled:${!col.HasMenu},
         sortable : ${col.Sortable},
+		
 		<?if col.Render?>
 		renderer: ${col.Name}_render,
 		<?endif?>
+		
 		<?if col.Locked?>
 		locked: true,
 		<?endif?>
-        dataIndex: '${col.Name}'
+		
+        flex: 1
         }
-		<?endif?>
 		<?count++;?>
 		<?endlist?>
 		<?if this.options.GenerateActionColumn?>

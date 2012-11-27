@@ -31,7 +31,7 @@ Ext.onReady(function() {
 	<?count++;?>
 	<?endlist?>
     ],
-    idProperty: 'company'
+    idProperty: ''
 });
 <?if this.options.EditMode=="Row"?>
 var editMode = Ext.create('Ext.grid.plugin.RowEditing', {
@@ -56,16 +56,18 @@ var editMode = Ext.create('Ext.grid.plugin.CellEditing', {
         data: test_data
     });
     var grid = Ext.create('Ext.grid.Panel', {
+		title: '${this.options.Title}',
+        renderTo: '${this.renderTo}',
         store: store,
 		<?if this.options.Plugin.WithCheckbox?>
 		selModel:Ext.create('Ext.selection.CheckboxModel'),
 		<?endif?>
+		<?if this.options.ColumnLines?>
+		columnLines: true,
+		<?endif?>
         stateful: ${this.options.Stateful},
         collapsible: ${this.options.Collapsible},
         multiSelect: ${this.options.MultiSelect},
-        <?if this.options.ColumnLines?>
-		columnLines: true,
-		<?endif?>
         columns: [
 		<?if this.options.Plugin.WithNumbered?>
 		<?if this.table.Columns.length>0?>
@@ -78,9 +80,12 @@ var editMode = Ext.create('Ext.grid.plugin.CellEditing', {
 		<?list this.table.Columns as col?>
 		<?if(col.IsExclude){continue;}?>
 		<?if count!=0?>
-		,{
+		,
+		<?endif?>
+		{
         header: '${col.Name}',
-		menuDisabled:${col.MenuDisabled},
+		dataIndex: '${col.Name}',
+		menuDisabled:${!col.HasMenu},
         flex: 1,
         sortable : ${col.Sortable},
 		<?if col.Render?>
@@ -89,10 +94,7 @@ var editMode = Ext.create('Ext.grid.plugin.CellEditing', {
 		<?if col.Locked?>
 		locked: true,
 		<?endif?>
-        dataIndex: '${col.Name}',
-		<?if col.DataType=="string"?>
-		editor:{allowBlank:${col.AllowBlank}}
-		<?elseif col.DataType=="double"||col.DataType=="int"?>
+		<?if col.DataType=="double"||col.DataType=="int"?>
 		editor: {
                 xtype: 'numberfield',
                 allowBlank: ${col.AllowBlank}
@@ -104,44 +106,15 @@ var editMode = Ext.create('Ext.grid.plugin.CellEditing', {
             }
 		<?elseif col.DataType=="bool"?>
 		xtype: 'checkcolumn'
-		<?endif?>
-        }
 		<?else?>
-		{
-        header     : '${col.Name}',
-		menuDisabled:${col.MenuDisabled},
-        flex     : 1,
-        sortable : ${col.Sortable},
-		<?if col.Render?>
-		renderer: ${col.Name}_render,
-		<?endif?>
-		<?if col.Locked?>
-		locked: true,
-		<?endif?>
-        dataIndex: '${col.Name}',
-		<?if col.DataType=="string"?>
 		editor:{allowBlank:${col.AllowBlank}}
-		<?elseif col.DataType=="double"||col.DataType=="int"?>
-		editor: {
-                xtype: 'numberfield',
-                allowBlank: ${col.AllowBlank}
-            }
-		<?elseif col.DataType=="date"?>
-		editor: {
-                xtype: 'datefield',
-                format: 'm/d/y'
-            }
-		<?elseif col.DataType=="bool"?>
-		xtype: 'checkcolumn'
 		<?endif?>
         }
-		<?endif?>
 		<?count++;?>
 		<?endlist?>
 		<?if this.options.GenerateActionColumn?>
         ,{
         menuDisabled: true,
-        sortable: false,
         xtype: 'actioncolumn',
         width: 50,
         items: [{
@@ -181,8 +154,6 @@ var editMode = Ext.create('Ext.grid.plugin.CellEditing', {
         }
 		<?endif?>
 		],
-        title: '${this.options.Title}',
-        renderTo: '${this.renderTo}',
 		plugins: [editMode]
     });
 	/*End Copy*/

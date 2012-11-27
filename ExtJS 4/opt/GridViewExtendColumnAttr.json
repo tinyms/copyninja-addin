@@ -2,6 +2,5 @@
  "Sortable":true,
  "Render":false,
  "Locked":false,
- "AliasName":"",
- "MenuDisabled":false
+ "HasMenu":true
 }
