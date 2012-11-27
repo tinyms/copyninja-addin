@@ -11,7 +11,8 @@ for(var k=0;k<cn.table.Columns.length;k++){
 	}else if(cn.options.Pattern=="Name"){
 		params_[index] = cn.options.Placeholder+col.Name;
 	}else if(cn.options.Pattern=="Number"){
-		params_[index] = cn.options.Placeholder+index;
+		var placeHolderIndex = index+1;
+		params_[index] = cn.options.Placeholder+placeHolderIndex;
 	}
 	index++;
 }

@@ -12,7 +12,8 @@ for(var k=0;k<cn.table.Columns.length;k++){
 		}else if(cn.options.Pattern=="Name"){
 			pk_params_[pkIndex] = cn.options.Placeholder+col.Name;
 		}else if(cn.options.Pattern=="Number"){
-			pk_params_[pkIndex] = cn.options.Placeholder+pkIndex;
+			var placeHolderIndex = pkIndex+1;
+			pk_params_[pkIndex] = cn.options.Placeholder+placeHolderIndex;
 		}
 		pkIndex++;
 	}
