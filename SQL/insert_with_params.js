@@ -16,4 +16,10 @@ for(var k=0;k<cn.table.Columns.length;k++){
 	}
 	index++;
 }
-cn.result = "INSERT INTO "+cn.table.Name+"("+colNames.join()+")VALUES("+params_.join()+")";
+
+var table_name = cn.table.Name;
+var str_index = table_name.indexOf(".");
+if(str_index!=-1){
+	table_name = table_name.substr(str_index+1);
+}
+cn.result = "INSERT INTO "+table_name+"("+colNames.join()+")VALUES("+params_.join()+")";

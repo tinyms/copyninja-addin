@@ -6,6 +6,8 @@
 <script type="text/javascript" src="extjs4/ext-all.js"></script>
 <script type="text/javascript">
  var test_data = ${this.data};
+ Ext.Loader.setConfig({enabled: true});
+ Ext.Loader.setPath('Ext.ux', 'extjs4/ux/');
  ${this.javascript}
 </script>
 </head>

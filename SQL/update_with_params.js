@@ -38,4 +38,10 @@ var where_str = [];
 for(var k=0;k<pks.length;k++){
 	where_str[k] = pks[k]+"="+pk_params_[k];
 }
-cn.result = "UPDATE "+cn.table.Name+" SET "+set_value_str.join()+" WHERE "+where_str.join(" AND ");
+
+var table_name = cn.table.Name;
+var str_index = table_name.indexOf(".");
+if(str_index!=-1){
+	table_name = table_name.substr(str_index+1);
+}
+cn.result = "UPDATE "+table_name+" SET "+set_value_str.join()+" WHERE "+where_str.join(" AND ");

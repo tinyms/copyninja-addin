@@ -1,5 +1,4 @@
-Ext.Loader.setConfig({enabled: true});
-Ext.Loader.setPath('Ext.ux', 'extjs4/ux/');
+
 Ext.require([
     'Ext.grid.*',
     'Ext.data.*',
@@ -24,15 +23,16 @@ Ext.onReady(function() {
 	<?list this.table.Columns as col?>
 	<?if(col.IsExclude){continue;}?>
 	<?if count!=0?>
-	,{name:"${col.Name}",type:"${(col.DataType=='double'?'float':col.DataType)}", convert: null, defaultValue: undefined}
-	<?else?>
-	{name:"${col.Name}",type:"${(col.DataType=='double'?'float':col.DataType)}", convert: null, defaultValue: undefined}
+	,
 	<?endif?>
+	{name:"${col.Name}",type:"${(col.DataType=='double'?'float':col.DataType)}", convert: null, defaultValue: undefined}
+
 	<?count++;?>
 	<?endlist?>
     ],
     idProperty: ''
 });
+
 <?if this.options.EditMode=="Row"?>
 var editMode = Ext.create('Ext.grid.plugin.RowEditing', {
         clicksToMoveEditor: 1,
@@ -43,6 +43,7 @@ var editMode = Ext.create('Ext.grid.plugin.CellEditing', {
         clicksToEdit: 1
     });
 <?endif?>
+
 	<?list this.table.Columns as col?>
 	<?if(col.IsExclude){continue;}?>
 	<?if col.Render?>
@@ -145,10 +146,9 @@ var editMode = Ext.create('Ext.grid.plugin.CellEditing', {
             rowBodyTpl : [
 			<?list this.table.Columns as index col?>
 			<?if index!=0?>
-			,'<p><b>${col.Name}:</b> {${col.Name}}</p>'
-			<?else?>
-			'<p><b>${col.Name}:</b> {${col.Name}}</p>'
+			,
 			<?endif?>
+			'<p><b>${col.Name}:</b> {${col.Name}}</p>'
 			<?endlist?>
             ]
         }
