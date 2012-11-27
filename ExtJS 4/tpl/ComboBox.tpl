@@ -42,6 +42,7 @@ Ext.onReady(function() {
 		valueField:'${valueField}',
         width: 320,
         labelWidth: 130,
+		editable: ${this.opts.Editable},
         store: store,
         queryMode: 'local',
 		

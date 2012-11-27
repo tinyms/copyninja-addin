@@ -2,5 +2,6 @@
  "UseTemplate":false,
  "MultiSelect":false,
  "FieldLabel":"",
- "RenderTo":""
+ "RenderTo":"",
+ "Editable":true
 }
