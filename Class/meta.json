@@ -1,0 +1,28 @@
+{	
+	"id":"com.tinyms.class",
+	"label":"Class",
+	"author":"tinyms",
+	"url":"http://www.tinyms.com",
+	"description":"Class Helper",
+	"common_scripts":[],
+	"actions":[
+	{
+		"id":"CSharp",
+		"label":"CSharp",
+		"icon":"",
+		"code_language":"csharp",
+		"use_webbrowser":false,
+		"use_database":true,
+		"option":"class.json",
+		"scripts":["csharp-class.js"]
+	},{
+		"id":"Java",
+		"label":"Java",
+		"icon":"",
+		"code_language":"java",
+		"use_webbrowser":false,
+		"use_database":true,
+		"option":"class.json",
+		"scripts":["java-class.js"]
+	}]
+}
