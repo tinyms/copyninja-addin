@@ -118,7 +118,7 @@ Ext.onReady(function() {
 		${innerEnd}{
                     fieldLabel: '${col.Name}',
                     allowBlank: ${col.AllowBlank},
-                    name: '${col.Name}',
+                    name: '${col.Name}',padding:'${this.opts.Padding.Top} ${this.opts.Padding.Right} ${this.opts.Padding.Bottom} ${this.opts.Padding.Left}',
                     anchor:'${anchor}%'${afterLabelTextTpl}${xtype}
                 }
 		<?
